@@ -2,8 +2,8 @@
 
 ## personal environment ##
 ---------
-VS Code + Ubuntu 18.04 C++17  gcc 7.5
-
+VS Code + Ubuntu 18.04 aarch64 C++17  gcc 7.5
+jetson_tx2 with jetpack 4.6.2 installed (other jetson serials maybe works too)
 ---------
 apt-get install ffmpeg/gstreamer/other dependency.
 
@@ -21,7 +21,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D BUILD_opencv_cudacodec=OFF \
 -D WITH_CUDNN=ON \
 -D OPENCV_DNN_CUDA=ON \
--D CUDA_ARCH_BIN=6.1 \
+-D CUDA_ARCH_BIN=6.2 \
 -D WITH_V4L=ON \
 -D WITH_QT=OFF \
 -D WITH_OPENGL=ON \
@@ -29,7 +29,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D OPENCV_GENERATE_PKGCONFIG=ON \
 -D OPENCV_PC_FILE_NAME=opencv.pc \
 -D OPENCV_ENABLE_NONFREE=ON \
--D OPENCV_EXTRA_MODULES_PATH=/windows2/zhzhi/opencv_contrib-4.6.0/modules \
+-D OPENCV_EXTRA_MODULES_PATH=/home/zhzhi/opencv_contrib-4.6.0/modules \
 -D INSTALL_PYTHON_EXAMPLES=OFF \
 -D INSTALL_C_EXAMPLES=OFF \
 -D BUILD_EXAMPLES=OFF ..
@@ -53,3 +53,13 @@ the pipe is driven by stream data, if your app is not responding, maybe no strea
 ## git tips ##
 if `git push --set-upstream origin new_branch` fails when pushing new local branch to remote, 
 try run `git remote add origin https://github.com/sherlockchou86/video_pipe_c.git` first.
+
+## how to check types of jetson device?
+https://forums.developer.nvidia.com/t/how-to-determine-which-jetson-type-is/123586/5
+
+## how to check cuda ability for jetson?
+https://developer.nvidia.com/cuda-gpus
+
+## how to check version of jetpack(from which cuda/tenssort versions)?
+install jtop via python3-pip, refer to https://github.com/rbonghi/jetson_stats
+
