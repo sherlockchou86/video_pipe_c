@@ -20,8 +20,8 @@ std::map<std::string, cv::Scalar> colors {{"blue", cv::Scalar(255, 0, 0)},
                                         {"white", cv::Scalar(255, 255, 255)}};
 
 int main(){
-    std::string plateModelPath = "../data/model/plate/det_2.trt";
-    std::string charModelPath = "../data/model/plate/rec.trt";
+    std::string plateModelPath = "../data/model/plate.trt";
+    std::string charModelPath = "../data/model/char.trt";
     auto image = cv::imread("../data/test/plate/truck3.png");
     auto image2 = cv::imread("../data/test/plate/3in1.png");
     auto image3 = cv::imread("../data/test/plate/truck2.png");

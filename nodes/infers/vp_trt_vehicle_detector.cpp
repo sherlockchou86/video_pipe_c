@@ -1,5 +1,6 @@
 
 #include "vp_trt_vehicle_detector.h"
+#ifdef TENSORRT
 
 namespace vp_nodes {
     
@@ -61,3 +62,4 @@ namespace vp_nodes {
 
     }
 }
+#endif

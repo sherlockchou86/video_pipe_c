@@ -19,5 +19,5 @@ g++ -shared ./*.o \
 -o libtrt_vehicle.so
 
 # copy to system path
-cp ./libtrt_vehicle.so /usr/local/lib/libtrt_vehicle.so
+cp ./libtrt_vehicle.so /usr/lib/libtrt_vehicle.so
 rm -f ./*.o

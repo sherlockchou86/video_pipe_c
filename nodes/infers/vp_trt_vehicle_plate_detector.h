@@ -1,5 +1,7 @@
 #pragma once
 
+#define TENSORRT 1
+#ifdef TENSORRT
 #include "../vp_secondary_infer_node.h"
 #include "../../objects/vp_sub_target.h"
 #include "../../third_party/trt_vehicle/models/vehicle_plate_detector.h"
@@ -26,3 +28,4 @@ namespace vp_nodes {
     };
 
 }
+#endif

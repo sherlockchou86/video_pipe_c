@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef PADDLE
 #include "../vp_primary_infer_node.h"
 #include "../../third_party/paddle_ocr/include/paddleocr.h"
 
@@ -30,3 +31,4 @@ namespace vp_nodes {
     };
 
 }
+#endif

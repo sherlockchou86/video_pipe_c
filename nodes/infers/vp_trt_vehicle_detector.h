@@ -1,5 +1,7 @@
 #pragma once
 
+#define TENSORRT 1
+#ifdef TENSORRT
 #include "../vp_primary_infer_node.h"
 #include "../../third_party/trt_vehicle/models/vehicle_detector.h"
 
@@ -20,3 +22,4 @@ namespace vp_nodes {
     };
 
 }
+#endif

@@ -1,6 +1,7 @@
 
-#include "vp_trt_vehicle_plate_detector.h"
 
+#include "vp_trt_vehicle_plate_detector.h"
+#ifdef TENSORRT
 namespace vp_nodes {
     
     vp_trt_vehicle_plate_detector::vp_trt_vehicle_plate_detector(std::string node_name, 
@@ -76,3 +77,4 @@ namespace vp_nodes {
         vp_infer_node::infer_combinations_time_cost(mats_to_infer.size(), prepare_time.count(), 0, infer_time.count(), 0);
     }
 }
+#endif
