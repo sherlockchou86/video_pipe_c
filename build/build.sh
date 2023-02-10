@@ -34,7 +34,6 @@ $BROKER_NODES
 
 
 # create shared library
-# build paddle_ocr & trt_vehilce first
 g++ -shared ./*.o \
 -fdiagnostics-color=always \
 -g \
@@ -46,8 +45,6 @@ g++ -shared ./*.o \
 -lopencv_dnn \
 -lopencv_video \
 -lopencv_freetype \
--lpaddle_ocr \
--ltrt_vehicle \
 -lpthread \
 -std=c++17 \
 -lstdc++fs \

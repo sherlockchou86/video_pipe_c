@@ -32,8 +32,9 @@ namespace vp_nodes {
         // failing means maybe it has a custom implementation for model loading in derived class such as using other backends other than opencv::dnn.
         try {
             net = cv::dnn::readNet(model_path, model_config_path);
-            net.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
-            net.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
+            // use pure cpu
+            // net.setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
+            // net.setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
         }
         catch(const std::exception& e) {
             VP_WARN(vp_utils::string_format("[%s] cv::dnn::readNet load network failed!", node_name.c_str()));
