@@ -6,7 +6,7 @@ add_definitions(-DAPI_EXPORTS)
 add_definitions(-O2 -pthread)
 
 # CUDA & OpenCV
-find_package(CUDA REQUIRED)
+# find_package(CUDA REQUIRED)
 find_package(OpenCV REQUIRED)
 
 message(STATUS "OpenCV library status:")
@@ -15,10 +15,10 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-message(STATUS "CUDA library status:")
-message(STATUS "    version: ${CUDA_VERSION}")
-message(STATUS "    libraries: ${CUDA_LIBS}")
-message(STATUS "    include path: ${CUDA_INCLUDE_DIRS}")
+# message(STATUS "CUDA library status:")
+# message(STATUS "    version: ${CUDA_VERSION}")
+# message(STATUS "    libraries: ${CUDA_LIBS}")
+# message(STATUS "    include path: ${CUDA_INCLUDE_DIRS}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Debug)
@@ -26,14 +26,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Ofast -Wfatal-errors -
 
 
 # trt_vehicle
-file(GLOB TRT_VEHICLE_SOURCES "third_party/trt_vehicle/**/*.cpp")
-cuda_add_library(trt_vehicle SHARED ${TRT_VEHICLE_SOURCES})
-target_link_libraries(trt_vehicle nvinfer cudart ${OpenCV_LIBS})
+# file(GLOB TRT_VEHICLE_SOURCES "third_party/trt_vehicle/**/*.cpp")
+# cuda_add_library(trt_vehicle SHARED ${TRT_VEHICLE_SOURCES})
+# target_link_libraries(trt_vehicle nvinfer cudart ${OpenCV_LIBS})
 
 # paddle_ocr
-file(GLOB PADDLE_OCR_SOURCES "third_party/paddle_ocr/**/*.cpp")
-add_library(paddle_ocr SHARED ${PADDLE_OCR_SOURCES})
-target_link_libraries(paddle_ocr paddle_inference paddle2onnx)
+# file(GLOB PADDLE_OCR_SOURCES "third_party/paddle_ocr/**/*.cpp")
+# add_library(paddle_ocr SHARED ${PADDLE_OCR_SOURCES})
+# target_link_libraries(paddle_ocr paddle_inference paddle2onnx)
 
 
 file(GLOB NODES "nodes/*.cpp")
@@ -48,7 +48,7 @@ file(GLOB LOGGER "utils/logger/*.cpp")
 
 
 add_library(video_pipe SHARED ${NODES} ${INFERS_NODES} ${OSD_NODES} ${OBJECTS} ${ELEMENTS_OBJECTS} ${SHAPES_OBJECTS} ${BA} ${UTILS_ANALYSIS_BOARD} ${LOGGER})
-target_link_libraries(video_pipe ${OpenCV_LIBS} paddle_ocr trt_vehicle -lstdc++fs)
+target_link_libraries(video_pipe ${OpenCV_LIBS} -lstdc++fs)
 
 add_executable(1-1-1_sample sample/1-1-1_sample.cpp)
 target_link_libraries(1-1-1_sample video_pipe ${OpenCV_LIBS})
